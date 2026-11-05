@@ -1,0 +1,61 @@
+* { box-sizing: border-box; }
+:root { color-scheme: dark; font-family: system-ui, "Segoe UI", Tahoma, sans-serif; background: #0a101d; color: #f1f6ff; }
+body { margin: 0; background: radial-gradient(ellipse at 72% 0, #192e48 0, transparent 48rem); line-height: 1.65; }
+[hidden] { display: none !important; }
+.shell { width: min(100% - 2.5rem, 55rem); margin-inline: auto; }
+.top, footer, .row { display: flex; align-items: center; justify-content: space-between; gap: .9rem; }
+.top { min-height: 5rem; border-block-end: 1px solid #28394e; }
+.brand { display: flex; align-items: center; gap: .55rem; line-height: 1.15; }
+.brand strong { display: block; letter-spacing: .17em; }
+.brand small { color: #a4bad1; font-size: .62rem; letter-spacing: .15em; }
+.hero { padding-block: clamp(2.8rem, 8vw, 5.6rem) 2.1rem; }
+.eyebrow, .kicker { color: #92defb; font-size: .82rem; font-weight: 700; margin: 0; }
+.eyebrow { display: flex; align-items: center; gap: .55rem; }
+.dot { border-radius: 50%; background: #68e1ff; height: .45rem; width: .45rem; box-shadow: 0 0 .8rem #68e1ff; }
+h1 { margin: .5rem 0; font-size: clamp(2.2rem, 7.5vw, 4.55rem); line-height: 1.22; }
+h2 { margin: 0; line-height: 1.35; font-size: clamp(1.2rem, 3vw, 1.55rem); }
+.subtitle { font-size: clamp(1rem, 2.4vw, 1.19rem); color: #bbcbe0; margin: .6rem 0 0; }
+.panel { background: #101c2d; border: 1px solid #2a4059; border-radius: 1.15rem; padding: clamp(1rem, 3vw, 1.65rem); margin-block-end: 1rem; }
+.scanner { box-shadow: 0 1rem 4rem #03091475; }
+.heading { align-items: flex-start; flex-wrap: wrap; margin-block-end: 1rem; }
+.kicker { margin-block-end: .25rem; }
+.badge { border-radius: 1.5rem; border: 1px solid #4f6178; color: #d4deeb; padding: .25rem .7rem; font-size: .78rem; }
+.badge[data-mode=demo] { color: #ffda96; border-color: #8c6837; background: #2e261e; }
+.badge[data-mode=live] { color: #a2edda; border-color: #397460; background: #142e2b; }
+button, input { font: inherit; border-radius: .65rem; min-height: 2.75rem; }
+button { cursor: pointer; font-weight: 700; }
+button:disabled { opacity: .65; cursor: wait; }
+button:focus-visible, input:focus-visible { outline: 2px solid #8ce1ff; outline-offset: 3px; }
+.quiet { background: #15263b; border: 1px solid #3a5068; color: #e0edff; padding: .3rem .85rem; }
+.primary { background: #8bdcff; border: 1px solid #8bdcff; color: #081521; padding: .55rem 1.1rem; }
+button:hover:not(:disabled) { filter: brightness(1.14); }
+label { display: block; font-weight: 650; margin-block-end: .4rem; }
+.input-row { align-items: stretch; }
+input { flex: 1; min-width: 0; width: 100%; background: #0a1423; color: #f1f6ff; border: 1px solid #4a627e; padding: .65rem .8rem; }
+input::placeholder { color: #8da3bd; }
+.micro, .sharing p, footer { color: #acbed4; font-size: .87rem; }
+.micro { margin: .45rem 0 0; }
+.examples { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem; margin-block-start: .9rem; font-size: .8rem; }
+.examples span { color: #ffda96; }
+.notice { margin: .6rem 0 0; font-size: .9rem; color: #ffda96; }
+.result:empty { margin: 0; padding: 0; border: 0; }
+.result { margin-block-start: 1rem; padding: .75rem 1rem; border-inline-start: .25rem solid #899db6; border-radius: .55rem; background: #0b1626; overflow-wrap: anywhere; }
+.result[data-status=safe] { border-color: #69dcb0; }
+.result[data-status=suspicious] { border-color: #f6c767; }
+.result[data-status=danger] { border-color: #ff909b; }
+.result strong { font-size: 1.12rem; }
+.result p { margin: .2rem 0 0; color: #c9d7e8; }
+.result .source { color: #a7bcd4; font-size: .8rem; }
+.advisory { border-block-start: 1px solid #2a4059; padding-block: .7rem 0; margin-block-start: .7rem; }
+.advisory h3, .advisory p { margin: 0; }
+.advisory h3 { font-size: 1rem; }
+.advisory p { font-size: .93rem; color: #c9d7e8; }
+.advisory[data-severity=high] h3 { color: #ffb0b8; }
+.sharing { padding: 1rem .15rem 1.8rem; }
+.sharing h2 { font-size: 1rem; }
+.sharing p { margin: .3rem 0 0; }
+footer { border-block-start: 1px solid #28394e; padding-block: 1rem; }
+@media (max-width: 520px) {
+  .shell { width: calc(100% - 1.6rem); }
+  .input-row { flex-direction: column; gap: .55rem; }
+}

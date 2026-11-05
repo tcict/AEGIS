@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "revision": "2026-11-05.1",
+  "updatedAt": "2026-11-05T00:00:00Z",
+  "advisories": [
+    {
+      "id": "delivery-messages",
+      "severity": "notice",
+      "title": {
+        "ar": "رسائل الشحن المفاجئة",
+        "en": "Unexpected delivery texts"
+      },
+      "body": {
+        "ar": "إذا طلبت رسالة دفع رسوم توصيل، راجع الطلب من تطبيق شركة الشحن مباشرة.",
+        "en": "If a text asks for a delivery fee, verify the shipment in the carrier’s app."
+      }
+    }
+  ]
+}

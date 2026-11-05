@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; form-action 'self'; object-src 'none'"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#0a101d">
+  <meta name="description" content="AEGIS by CODE MATRIX. Check link reputation before you click.">
+  <title>AEGIS · CODE MATRIX</title>
+  <link rel="icon" href="./icon.svg">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <header class="top shell">
+    <div class="brand" dir="ltr"><img src="./icon.svg" alt="" width="44" height="44"><div><strong>AEGIS</strong><small>CODE MATRIX</small></div></div>
+    <button type="button" id="locale" class="quiet" lang="en">English</button>
+  </header>
+  <main class="shell">
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow"><span class="dot"></span><span data-t="eyebrow">حماية الروابط</span></p>
+      <h1 id="hero-title" data-t="title">فكّر قبل أن تضغط.</h1>
+      <p class="subtitle" data-t="intro">افحص سمعة الرابط قبل فتحه، سواء وصلك في رسالة أو ظهر في صفحة.</p>
+    </section>
+    <section class="panel scanner" aria-labelledby="scan-title">
+      <div class="row heading">
+        <div><p class="kicker" data-t="scanner">ماسح الروابط</p><h2 id="scan-title" data-t="scanTitle">هل هذا الرابط موثوق؟</h2></div>
+        <span id="mode" class="badge" role="status">وضع المحاكاة</span>
+      </div>
+      <form id="scan" novalidate>
+        <label for="url" data-t="link">الرابط</label>
+        <div class="row input-row">
+          <input id="url" type="url" dir="ltr" inputmode="url" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="2048" placeholder="https://example.com" aria-describedby="privacy intake">
+          <button type="submit" id="submit" class="primary" data-t="submit">افحص الرابط</button>
+        </div>
+        <p id="privacy" class="micro"></p>
+        <p id="intake" class="notice" role="status" hidden></p>
+      </form>
+      <div class="examples" id="examples" hidden>
+        <span data-t="try">أمثلة المحاكاة</span>
+        <button type="button" class="quiet" data-sample="https://example.com" data-t="safe">آمن مبدئيًا</button>
+        <button type="button" class="quiet" data-sample="https://example.org" data-t="suspicious">مشبوه</button>
+        <button type="button" class="quiet" data-sample="https://example.net" data-t="danger">خطر</button>
+        <button type="button" class="quiet" data-sample="https://www.iana.org" data-t="unknown">غير معروف</button>
+      </div>
+      <div id="result" class="result" role="status" aria-atomic="true"></div>
+    </section>
+    <section class="panel advisories" aria-labelledby="feed-title">
+      <div class="row heading">
+        <div><p class="kicker" data-t="feedKicker">تحديثات سحابية</p><h2 id="feed-title" data-t="feedTitle">تنبيهات الحماية</h2></div>
+        <button type="button" id="refresh" class="quiet" data-t="refresh">تحديث</button>
+      </div>
+      <p id="feed-state" class="micro" role="status"></p>
+      <div id="advisory-list"></div>
+    </section>
+    <section class="sharing">
+      <h2 data-t="shareTitle">افحص من قائمة المشاركة</h2>
+      <p data-t="shareBody">اختر AEGIS إذا ظهر في قائمة المشاركة، ثم راجع الرابط واضغط «افحص الرابط». ويمكنك لصق الرابط هنا مباشرة.</p>
+    </section>
+  </main>
+  <footer class="shell"><span dir="ltr">AEGIS / CODE MATRIX</span><span dir="ltr">v0.1.0 · MVP</span></footer>
+</body>
+</html>
