@@ -6,6 +6,8 @@ body { margin: 0; background: radial-gradient(ellipse at 72% 0, #192e48 0, trans
 .top, footer, .row { display: flex; align-items: center; justify-content: space-between; gap: .9rem; }
 .top { min-height: 5rem; border-block-end: 1px solid #28394e; }
 .brand { display: flex; align-items: center; gap: .55rem; line-height: 1.15; }
+.brand-mark { display: grid; place-content: center; overflow: hidden; inline-size: 44px; block-size: 44px; border-radius: .65rem; background: #000; }
+.brand-mark img { display: block; }
 .brand strong { display: block; letter-spacing: .17em; }
 .brand small { color: #a4bad1; font-size: .62rem; letter-spacing: .15em; }
 .hero { padding-block: clamp(2.8rem, 8vw, 5.6rem) 2.1rem; }
@@ -54,7 +56,8 @@ input::placeholder { color: #8da3bd; }
 .sharing { padding: 1rem .15rem 1.8rem; }
 .sharing h2 { font-size: 1rem; }
 .sharing p { margin: .3rem 0 0; }
-footer { border-block-start: 1px solid #28394e; padding-block: 1rem; }
+footer { border-block-start: 1px solid #28394e; padding-block: 1rem; flex-wrap: wrap; }
+.brand-tagline { color: #d9e5f2; }
 @media (max-width: 520px) {
   .shell { width: calc(100% - 1.6rem); }
   .input-row { flex-direction: column; gap: .55rem; }
