@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; form-action 'self'; object-src 'none'"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#0a101d">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://cloudflare-dns.com https://security.cloudflare-dns.com; base-uri 'none'; form-action 'self'; object-src 'none'"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#0a101d">
   <meta name="description" content="AEGIS by CODE MATRIX. Check link reputation before you click.">
   <title>AEGIS · CODE MATRIX</title>
   <link rel="icon" href="./icon.svg">
@@ -29,23 +29,23 @@
     <section class="panel scanner" aria-labelledby="scan-title">
       <div class="row heading">
         <div><p class="kicker" data-t="scanner">ماسح الروابط</p><h2 id="scan-title" data-t="scanTitle">هل هذا الرابط موثوق؟</h2></div>
-        <span id="mode" class="badge" role="status">وضع المحاكاة</span>
+        <span id="mode" class="badge" role="status">تحليل الرابط وفحص DNS</span>
       </div>
       <form id="scan" novalidate>
         <label for="url" data-t="link">الرابط</label>
         <div class="row input-row">
           <input id="url" type="url" dir="ltr" inputmode="url" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="2048" placeholder="https://example.com" aria-describedby="privacy intake">
-          <button type="submit" id="submit" class="primary" data-t="submit">افحص الرابط</button>
+          <button type="submit" id="submit" class="primary" data-t="submit">افحص الرابط والنطاق</button>
+          <button type="submit" id="local" class="quiet" data-t="local">تحليل محلي</button>
         </div>
         <p id="privacy" class="micro"></p>
         <p id="intake" class="notice" role="status" hidden></p>
       </form>
       <div class="examples" id="examples" hidden>
-        <span data-t="try">أمثلة المحاكاة</span>
-        <button type="button" class="quiet" data-sample="https://example.com" data-t="safe">آمن مبدئيًا</button>
-        <button type="button" class="quiet" data-sample="https://example.org" data-t="suspicious">مشبوه</button>
-        <button type="button" class="quiet" data-sample="https://example.net" data-t="danger">خطر</button>
-        <button type="button" class="quiet" data-sample="https://www.iana.org" data-t="unknown">غير معروف</button>
+        <span data-t="try">روابط للتجربة</span>
+        <button type="button" class="quiet" data-sample="https://example.com" data-t="sampleNormal">نطاق عادي</button>
+        <button type="button" class="quiet" data-sample="https://example.com/?next=https%3A%2F%2Fexample.org" data-t="sampleSuspicious">معامل إعادة توجيه</button>
+        <button type="button" class="quiet" data-sample="https://malware.testcategory.com" data-t="sampleBlocked">نطاق اختبار محجوب</button>
       </div>
       <div id="result" class="result" role="status" aria-atomic="true"></div>
     </section>
@@ -65,7 +65,7 @@
   <footer class="shell">
     <span dir="ltr">AEGIS / CODE MATRIX</span>
     <span class="brand-tagline" dir="ltr" lang="en">Always One Step Ahead</span>
-    <span dir="ltr">v0.1.0 · MVP</span>
+    <span dir="ltr">v0.2.0</span>
   </footer>
 </body>
 </html>

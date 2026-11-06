@@ -18,6 +18,6 @@
 | الألوان والمظهر | `style.css` |
 | هيكل الصفحة | `index.html` |
 
-فحص هذه النسخة محاكاة داخل المتصفح. الروابط خارج الأمثلة تظهر «غير معروف». فحص Google Web Risk الفعلي يحتاج خادم AEGIS منفصلًا لحفظ المفتاح وتشغيل الطلبات. احتفظ بمفاتيح الخدمات خارج ملفات الموقع والمستودع.
+يقرأ AEGIS صيغة الرابط محليًا. فحص النطاق يرسل اسم النطاق فقط إلى Cloudflare ويقارن ردّ محلّل DNS العادي بفلتر البرامج الخبيثة. التحليل المحلي لا يرسل النطاق، ولا يفتح AEGIS الرابط في الوضعين. فحص سمعة المسار الكامل أو محتوى الصفحة يحتاج خدمة مستقلة.
 
 [إنشاء GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site) · [إعداد فرع النشر](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)

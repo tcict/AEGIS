@@ -22,8 +22,6 @@ h2 { margin: 0; line-height: 1.35; font-size: clamp(1.2rem, 3vw, 1.55rem); }
 .heading { align-items: flex-start; flex-wrap: wrap; margin-block-end: 1rem; }
 .kicker { margin-block-end: .25rem; }
 .badge { border-radius: 1.5rem; border: 1px solid #4f6178; color: #d4deeb; padding: .25rem .7rem; font-size: .78rem; }
-.badge[data-mode=demo] { color: #ffda96; border-color: #8c6837; background: #2e261e; }
-.badge[data-mode=live] { color: #a2edda; border-color: #397460; background: #142e2b; }
 button, input { font: inherit; border-radius: .65rem; min-height: 2.75rem; }
 button { cursor: pointer; font-weight: 700; }
 button:disabled { opacity: .65; cursor: wait; }
@@ -42,7 +40,7 @@ input::placeholder { color: #8da3bd; }
 .notice { margin: .6rem 0 0; font-size: .9rem; color: #ffda96; }
 .result:empty { margin: 0; padding: 0; border: 0; }
 .result { margin-block-start: 1rem; padding: .75rem 1rem; border-inline-start: .25rem solid #899db6; border-radius: .55rem; background: #0b1626; overflow-wrap: anywhere; }
-.result[data-status=safe] { border-color: #69dcb0; }
+.result[data-status=noWarning] { border-color: #69dcb0; }
 .result[data-status=suspicious] { border-color: #f6c767; }
 .result[data-status=danger] { border-color: #ff909b; }
 .result strong { font-size: 1.12rem; }
@@ -58,7 +56,13 @@ input::placeholder { color: #8da3bd; }
 .sharing p { margin: .3rem 0 0; }
 footer { border-block-start: 1px solid #28394e; padding-block: 1rem; flex-wrap: wrap; }
 .brand-tagline { color: #d9e5f2; }
-@media (max-width: 520px) {
+.result h3 { margin: .9rem 0 .3rem; font-size: .95rem; }
+.report-facts { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: .2rem .75rem; margin: .35rem 0; font-size: .88rem; }
+.report-facts dt { color: #acbed4; }
+.report-facts dd { margin: 0; text-align: start; overflow-wrap: anywhere; }
+.report-signals { margin: .3rem 0; padding-inline-start: 1.25rem; color: #c9d7e8; }
+.report-signals [data-warning] { color: #ffda96; }
+@media (max-width: 640px) {
   .shell { width: calc(100% - 1.6rem); }
   .input-row { flex-direction: column; gap: .55rem; }
 }
