@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://cloudflare-dns.com https://security.cloudflare-dns.com; base-uri 'none'; form-action 'self'; object-src 'none'"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#0a101d">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://cloudflare-dns.com https://security.cloudflare-dns.com; base-uri 'none'; form-action 'self'; object-src 'none'"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#101012">
   <meta name="description" content="AEGIS by CODE MATRIX. Check link reputation before you click.">
   <title>AEGIS · CODE MATRIX</title>
   <link rel="icon" href="./icon.svg">
@@ -18,13 +18,16 @@
       <span class="brand-mark"><img src="./code-matrix.png" alt="" width="64" height="64"></span>
       <div><strong>AEGIS</strong><small>CODE MATRIX</small></div>
     </div>
-    <button type="button" id="locale" class="quiet" lang="en">English</button>
+    <div id="locale" class="locale" role="group" aria-label="لغة الواجهة" dir="ltr">
+      <button type="button" data-lang="ar" lang="ar" aria-pressed="true">العربية</button>
+      <button type="button" data-lang="en" lang="en" aria-pressed="false">English</button>
+    </div>
   </header>
   <main class="shell">
     <section class="hero" aria-labelledby="hero-title">
       <p class="eyebrow"><span class="dot"></span><span data-t="eyebrow">حماية الروابط</span></p>
       <h1 id="hero-title" data-t="title">فكّر قبل أن تضغط.</h1>
-      <p class="subtitle" data-t="intro">افحص سمعة الرابط قبل فتحه، سواء وصلك في رسالة أو ظهر في صفحة.</p>
+      <p class="subtitle" data-t="intro">افحص بنية الرابط وسمعة نطاقه قبل فتحه.</p>
     </section>
     <section class="panel scanner" aria-labelledby="scan-title">
       <div class="row heading">
@@ -59,13 +62,13 @@
     </section>
     <section class="sharing">
       <h2 data-t="shareTitle">افحص من قائمة المشاركة</h2>
-      <p data-t="shareBody">اختر AEGIS إذا ظهر في قائمة المشاركة، ثم راجع الرابط واضغط «افحص الرابط». ويمكنك لصق الرابط هنا مباشرة.</p>
+      <p data-t="shareBody">اختر AEGIS إذا ظهر في قائمة المشاركة، ثم راجع الرابط واضغط «افحص الرابط والنطاق». ويمكنك لصق الرابط هنا مباشرة.</p>
     </section>
   </main>
   <footer class="shell">
     <span dir="ltr">AEGIS / CODE MATRIX</span>
     <span class="brand-tagline" dir="ltr" lang="en">Always One Step Ahead</span>
-    <span dir="ltr">v0.2.0</span>
+    <span dir="ltr">v0.2.1</span>
   </footer>
 </body>
 </html>

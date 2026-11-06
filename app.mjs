@@ -3,6 +3,7 @@ import { checkDomain, inspectLink, verdict } from './scan.mjs';
 
 const copy = {
   ar: {
+    language: 'لغة الواجهة',
     mode: "تحليل الرابط وفحص DNS",
     privacy: "يرسل فحص Cloudflare اسم النطاق فقط. التحليل المحلي لا يرسله. لا يفتح AEGIS الرابط.",
     submit: "افحص الرابط والنطاق",
@@ -60,9 +61,10 @@ const copy = {
     feedStale: 'تعذّر التحديث. تظهر آخر نسخة متاحة خلال هذه الجلسة.',
     feedVersion: 'مراجعة', noAdvisories: 'لا توجد تنبيهات في هذه المراجعة.',
     shareTitle: 'افحص من قائمة المشاركة',
-    shareBody: 'اختر AEGIS إذا ظهر في قائمة المشاركة، ثم راجع الرابط واضغط «افحص الرابط». ويمكنك لصق الرابط هنا مباشرة.'
+    shareBody: 'اختر AEGIS إذا ظهر في قائمة المشاركة، ثم راجع الرابط واضغط «افحص الرابط والنطاق». ويمكنك لصق الرابط هنا مباشرة.'
   },
   en: {
+    language: 'Interface language',
     mode: "URL analysis and DNS checks",
     privacy: "Cloudflare receives only the hostname. Local analysis sends nothing. AEGIS never opens the URL.",
     submit: "Check link and domain",
@@ -120,7 +122,7 @@ const copy = {
     feedStale: 'Refresh failed. Showing the latest copy available in this session.',
     feedVersion: 'Revision', noAdvisories: 'There are no advisories in this revision.',
     shareTitle: 'Scan from the share sheet',
-    shareBody: 'Choose AEGIS if it appears in your share sheet, review the link, then select Check link. You can also paste a link here.'
+    shareBody: 'Choose AEGIS if it appears in your share sheet, review the link, then select Check link and domain. You can also paste a link here.'
   }
 };
 
@@ -233,8 +235,10 @@ function renderFeed() {
 function render() {
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-  $('locale').textContent = lang === 'ar' ? 'English' : 'العربية';
-  $('locale').lang = lang === 'ar' ? 'en' : 'ar';
+  $('locale').setAttribute('aria-label', t('language'));
+  for (const button of $('locale').querySelectorAll('[data-lang]')) {
+    button.setAttribute('aria-pressed', String(button.dataset.lang === lang));
+  }
   for (const node of document.querySelectorAll('[data-t]')) node.textContent = t(node.dataset.t);
   $('mode').textContent = t('mode');
   $('privacy').textContent = t('privacy');
@@ -310,8 +314,10 @@ if (location.hash.startsWith('#share')) {
   }
 }
 
-$('locale').addEventListener('click', () => {
-  lang = lang === 'ar' ? 'en' : 'ar';
+$('locale').addEventListener('click', event => {
+  const selected = event.target.closest('button[data-lang]')?.dataset.lang;
+  if (!selected || selected === lang) return;
+  lang = selected;
   try { localStorage.setItem('aegis-language', lang); } catch {}
   render();
 });
